@@ -1,0 +1,37 @@
+{
+  "lastUpdate": 1664836263880,
+  "blocks": {
+    "*": {
+      "hits": {
+        "installCount": {
+          "node-modules": 4
+        }
+      },
+      "values": {
+        "version": [
+          "3.1.1"
+        ],
+        "pluginName": [
+          "@yarnpkg/plugin-workspace-tools"
+        ],
+        "commandName": [
+          "<none>",
+          "workspace",
+          "pack",
+          "init"
+        ],
+        "workspaceCount": [
+          "16"
+        ],
+        "dependencyCount": [
+          "365"
+        ]
+      },
+      "enumerators": {
+        "projectCount": [
+          "b49581d6667133e7aae25391bdba880bf9f87270a76a3c93585fcb39957c4abc13491ef29db0e0be2dcfdffd7f249200ac9092632f494694a77ba9702c92d91c"
+        ]
+      }
+    }
+  }
+}

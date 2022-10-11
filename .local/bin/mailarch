@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+[ -n "$1" ] && c="$1"
+[ -z "$c" ] && c="$(printf "none\\nmost\\nall read\\neverything" | dmenu -i -p "Archive which mail?")"
+
+case "$c" in
+	none) exit ;;
+	"") exit ;;
+	"all read") mv -v ~/.local/share/mail/ldecareaux@rebootcyber.xyz/INBOX/cur/* ~/.local/share/mail/ldecareaux@rebootcyber.xyz/Louisiana/cur 2>/dev/null ;;
+	"everything") mv -V ~/.local/share/mail/ldecareaux@rebootcyber.xyz/INBOX/cur/* ~/.local/share/mail/ldecareaux@rebootcyber.xyz/INBOX ~/.local/share/mail/ldecareaux@rebootcyber.xyz/louisiana/cur 2>/dev/null ;;
+
+esac
+
+rm -f ~/.local/share/mail/ldecareaux@rebootcyber.xyz/Junk/cur/* ~/.local/share/mail/ldecareaux@rebootcyber.xyz/Junk/new/*
+mv -v ~/.local/share/mail/ldecareaux@rebootcyber.xyz/Sent/cur/* ~/.local/share/mail/ldecareaux@rebootcyber.xyz/Louisiana/cur/ 2>/dev/null
+notify-send "📧 Inactive email moved to archive."
+notmuch new >/dev/null 2>/dev/null &
+
+
+[ -d /media/mail ] || exit
+
+rsync -aurP --delete-after /home/liam/.local/share/mail/ldecareaux@rebootcyber.xyz/Archive/* /media/mail

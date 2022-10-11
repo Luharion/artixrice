@@ -1,0 +1,6 @@
+#!/bin/sh
+
+xdeets = "$(xrandr -q)"
+echo "$xdeets" | grep "DP2 con" >/dev/null 2>&1 && xrandr --output DP1 --size 2560x1080 --output LVDS1 --off ||
+echo "$xdeets" | grep "HDMI2 con" >/dev/null 2>&1 &&  xrandr --output HDMI2 --size 2560x1080 --output LVDS1 --off ||
+echo "$xdeets" | grep "VGA1 con" >/dev/null 2>&1 && xrandr --output VGA1 --size 2560x1080 --output LVDS1 --off
